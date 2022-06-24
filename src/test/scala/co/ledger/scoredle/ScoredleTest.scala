@@ -7,7 +7,7 @@ class ScoredleTest extends FunSuite:
 
   def dictionary(word: Word) = Dictionary(List(word))
 
-  test("Having the solution is all green".ignore) {
+  test("Having the solution is all green") {
     val word = "abcde"
     assertEquals(
       Scoredle(word).test(word),
@@ -15,7 +15,7 @@ class ScoredleTest extends FunSuite:
     )
   }
 
-  test("All wrong".ignore) {
+  test("All wrong") {
     val solution = "abcde"
     val proposal = "fghij"
     assertEquals(
@@ -24,7 +24,7 @@ class ScoredleTest extends FunSuite:
     )
   }
 
-  test("One misplaced".ignore) {
+  test("One misplaced") {
     val solution = "abcde"
     val proposal = "faghi"
     assertEquals(
@@ -33,7 +33,7 @@ class ScoredleTest extends FunSuite:
     )
   }
 
-  test("Twice the same letter, only once in solution".ignore) {
+  test("Twice the same letter, only once in solution") {
     val solution = "abcde"
     val proposal = "aafgh"
     assertEquals(
@@ -42,7 +42,7 @@ class ScoredleTest extends FunSuite:
     )
   }
 
-  test("Twice the same letter, one correct, other misplaced".ignore) {
+  test("Twice the same letter, one correct, other misplaced") {
     val solution = "abade"
     val proposal = "aafgh"
     assertEquals(
@@ -51,16 +51,16 @@ class ScoredleTest extends FunSuite:
     )
   }
 
-  test("Three times the same letter, one correct, other misplaced".ignore) {
-    val solution = "abade"
+  test("Three times the same letter, one correct, other misplaced") {
+    val solution = "xabad"
     val proposal = "aafga"
     assertEquals(
       Scoredle(solution).test(proposal),
-      List(Correct, Misplaced, Wrong, Wrong, Wrong)
+      List(Misplaced, Correct, Wrong, Wrong, Wrong)
     )
   }
 
-  test("Three times the same letter, only once in solution".ignore) {
+  test("Three times the same letter, only once in solution") {
     val solution = "abcde"
     val proposal = "aaagh"
     assertEquals(
